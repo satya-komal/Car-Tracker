@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins ="http://mocker.egen.io", maxAge = 3600)
+@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping(value = "readings")
 public class ReadingsController  {
@@ -19,6 +19,7 @@ public class ReadingsController  {
     @Autowired
     private ReadingService readingService;
 
+    @CrossOrigin(origins ="http://mocker.egen.io")
     @RequestMapping(method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_UTF8_VALUE,
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -26,4 +27,20 @@ public class ReadingsController  {
         readingService.create(readings);
         //readingService.getAlerts(readings);
     }
+
+    @CrossOrigin(origins="http://localhost:3000")
+    @RequestMapping(method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<Readings> getReadings() {
+        return readingService.getReadings();
+    }
+
+    //GET readings by id
+    @CrossOrigin(origins="http://localhost:3000")
+    @RequestMapping(method = RequestMethod.GET, value = "{id}",
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<Readings> findReadingsByID(@PathVariable("id") String vehicleId) {
+        return readingService.findById(vehicleId);
+    }
+
 }

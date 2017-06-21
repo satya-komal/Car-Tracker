@@ -14,9 +14,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class AppConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/*")
-                .allowedOrigins("http://mocker.egen.io")
-                .allowedMethods("PUT", "POST")
+        registry.addMapping("*//*")
+                .allowedOrigins("http://localhost:3000","http://mocker.egen.io")
+                .allowedMethods("PUT", "POST","GET")
                 .allowCredentials(false).maxAge(3600);
     }
 }

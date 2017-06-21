@@ -7,7 +7,11 @@ import java.util.UUID;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Readings.findById",
-                query = "SELECT readings FROM Readings readings WHERE readings.vin=:vehicle_id")
+                query = "SELECT readings FROM Readings readings WHERE readings.vin=:vehicle_id"),
+
+        @NamedQuery(name = "Readings.findAll",
+                query = "SELECT readings FROM Readings readings ")
+
 })
 public class Readings {
 
@@ -16,6 +20,7 @@ public class Readings {
     private String vin;
     private float latitude;
     private float longitude;
+    private String timestamp;
     private int fuelVolume;
     private int speed;
     private int engineHp;
@@ -53,6 +58,10 @@ public class Readings {
     public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
+
+    public String getTimestamp() { return timestamp; }
+
+    public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
 
     public int getFuelVolume() {
         return fuelVolume;

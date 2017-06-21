@@ -2,9 +2,19 @@ package io.egen.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import java.util.UUID;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Alerts.findAll",
+                query = "SELECT alerts FROM Alerts alerts "),
+
+        @NamedQuery(name = "Alerts.findById",
+                query = "SELECT alerts FROM Alerts alerts WHERE alerts.vehicleId=:vehicle_id"),
+})
+
 public class Alerts {
 
     @Id

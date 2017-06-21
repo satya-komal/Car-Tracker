@@ -7,6 +7,6 @@ public interface VehicleRepo {
 
     void create(List<Vehicle> vehicle);
     void update(List<Vehicle> vehicle);
-
+    List<Vehicle> findAll();
     Vehicle findbyVin (String Vin);
 }

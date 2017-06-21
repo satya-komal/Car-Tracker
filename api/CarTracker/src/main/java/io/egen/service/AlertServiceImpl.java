@@ -15,6 +15,21 @@ import java.util.List;
 @Service
 public class AlertServiceImpl implements AlertService{
 
+    @Autowired
+    AlertsRepo alertsRepo;
+
+    @Override
+    public List<Alerts> getAlerts() {
+        List<Alerts> foundAlerts = alertsRepo.findAlerts();
+        return foundAlerts;
+    }
+
+    @Override
+    public List<Alerts> findAlerts(String vehicleId) {
+        List<Alerts> foundAlertsbyId = alertsRepo.findAlertsbyId(vehicleId);
+        return foundAlertsbyId;
+    }
+
    /* @Autowired
     AlertsRepo alertsRepo;
     ReadingsRepo readingsRepo;

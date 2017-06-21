@@ -31,6 +31,17 @@ public class VehicleRepoImpl implements VehicleRepo {
     }
 
     @Override
+    public List<Vehicle> findAll() {
+        TypedQuery<Vehicle> query = em1.createNamedQuery("Vehicle.findAll", Vehicle.class);
+        List<Vehicle> resultList = query.getResultList();
+        if (resultList != null ) {
+            return resultList;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public Vehicle findbyVin(String Vin) {
         TypedQuery<Vehicle> query = em1.createNamedQuery("Vehicle.findById", Vehicle.class);
         query.setParameter("vehicle_id", Vin);

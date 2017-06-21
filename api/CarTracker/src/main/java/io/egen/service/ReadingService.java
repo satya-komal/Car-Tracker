@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface ReadingService {
      void create(Readings readings);
+     List<Readings> getReadings();
+     List<Readings> findById(String vId);
      //void createAlerts( List<Readings> readings);
 }

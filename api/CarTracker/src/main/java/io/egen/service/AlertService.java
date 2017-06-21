@@ -6,5 +6,6 @@ import io.egen.entity.Readings;
 import java.util.List;
 
 public interface AlertService {
-  // void create(List<Readings> readings);
+     List<Alerts> getAlerts();
+     List<Alerts> findAlerts(String vehicleId);
 }

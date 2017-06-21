@@ -23,6 +23,29 @@ public class ReadingsRepoImpl implements ReadingsRepo {
             em.persist(readings);
     }
 
+    @Override
+    public List<Readings> getAllReadings() {
+        TypedQuery<Readings> query = em.createNamedQuery("Readings.findAll", Readings.class);
+        List<Readings> resultList = query.getResultList();
+        if (resultList != null ) {
+            return resultList;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public List<Readings> getReadingsById(String vin) {
+        TypedQuery<Readings> query = em.createNamedQuery("Readings.findById", Readings.class);
+        query.setParameter("vehicle_id", vin);
+        List<Readings> resultList = query.getResultList();
+        if (resultList != null ) {
+            return resultList;
+        } else {
+            return null;
+        }
+    }
+
     public Readings findbyVin(String Vin) {
         TypedQuery<Readings> query = em.createNamedQuery("Readings.findById", Readings.class);
         query.setParameter("vehicle_id", Vin);

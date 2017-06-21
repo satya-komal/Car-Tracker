@@ -7,7 +7,11 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
                 @NamedQuery(name = "Vehicle.findById",
-                    query = "SELECT vehicle FROM Vehicle vehicle WHERE vehicle.vin=:vehicle_id")
+                    query = "SELECT vehicle FROM Vehicle vehicle WHERE vehicle.vin=:vehicle_id"),
+
+               @NamedQuery(name = "Vehicle.findAll",
+                    query = "SELECT vehicle FROM Vehicle vehicle ")
+
               })
 public class Vehicle {
 

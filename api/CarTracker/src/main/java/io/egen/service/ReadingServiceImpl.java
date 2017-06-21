@@ -41,6 +41,8 @@ public class ReadingServiceImpl implements ReadingService{
         readingsRepo.create(readings);
     }
 
+
+
     public  List<Alerts> createAlerts( Readings r,Vehicle vehicle_existing){
 
             List<Alerts> alerts = new ArrayList<>();
@@ -72,5 +74,15 @@ public class ReadingServiceImpl implements ReadingService{
                 alerts.add(newalert);
 
         return alerts;
+    }
+
+    @Override
+    public List<Readings> getReadings() {
+        return readingsRepo.getAllReadings();
+    }
+
+    @Override
+    public List<Readings> findById(String vId) {
+        return readingsRepo.getReadingsById(vId);
     }
 }

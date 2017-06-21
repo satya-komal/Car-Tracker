@@ -44,22 +44,21 @@ public class VehicleServiceImpl implements VehicleService{
         }
     }
 
-    /*
     @Override
     public List<Vehicle> findAll() {
+        List<Vehicle> vehiclesFound = vehicleRepo.findAll();
+        return vehiclesFound;
+    }
+
+    @Override
+    public Vehicle findOne(String vehicleId) {
+        Vehicle v = vehicleRepo.findbyVin(vehicleId);
+        return v;
+    }
+
+    @Override
+    public void delete(String vehicleId) {
 
     }
-    @Override
-    public Vehicle findOne(String id) {
-        return null;
-    }
-    @Override
-    public Vehicle update(String id, Vehicle vehicle) {
-        return null;
-    }
-    @Override
-    public void delete(String id) {
 
-    }
-    */
 }
