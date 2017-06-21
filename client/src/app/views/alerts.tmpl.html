@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Alerts</h2>
+    <div>
+        <input type="search" ng-model="alertsVm.searchText" placeholder="Search here..." class="form-control">
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th ng-click="alertsVm.changeSort('vehicleId')">Vin</th>
+            <th ng-click="alertsVm.changeSort('alertTime')">AlertTime</th>
+            <th ng-click="alertsVm.changeSort('priority_RPM')">RPM-Status</th>
+            <th ng-click="alertsVm.changeSort('priority_engineStatus')">Engine-Status</th>
+            <th ng-click="alertsVm.changeSort('priority_fuelVolume')">FuelVolume-Status</th>
+            <th ng-click="alertsVm.changeSort('priority_tirePressure')">tirePressure-Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="alert in alertsVm.alerts | filter:alertsVm.searchText|
+                        orderBy:alertsVm.sorter.by:alertsVm.sorter.reverse">
+            <td><a ng-href="#/alerts"></a></td>
+            <td>{{alert.vehicleId}}</td>
+            <td>{{alert.alertTime}}</td>
+            <td>{{alert.priority_RPM}}</td>
+            <td>{{alert.priority_engineStatus}}</td>
+            <td>{{alert.priority_fuelVolume}}</td>
+            <td>{{alert.priority_tirePressure}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Readings</h2>
+  <div>
+    <input type="search" ng-model="readingsVm.searchText" placeholder="Search here..." class="form-control">
+
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th ng-click="readingsVm.changeSort('vin')">Vin</th>
+      <th ng-click="readingsVm.changeSort('timestamp')">TimeStamp</th>
+      <th ng-click="readingsVm.changeSort('latitude')">Latitude</th>
+      <th ng-click="readingsVm.changeSort('longitude')">Longitude</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="reading in readingsVm.readings | filter:readingsVm.vin|
+                        orderBy:readingsVm.sorter.by:readingsVm.sorter.reverse">
+      <td><a ng-href="#/readings"></a></td>
+      <td>{{reading.vin}}</td>
+      <td>{{reading.timestamp}}</td>
+      <td>{{reading.latitude}}</td>
+      <td>{{reading.longitude}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
