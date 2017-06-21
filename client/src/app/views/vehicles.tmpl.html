@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Vehicle List</h2>
+  <div>
+    <input type="search" ng-model="vehiclesVm.searchText" placeholder="Search here..." class="form-control">
+  </div>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th ng-click="vehiclesVm.changeSort('vin')">Vin</th>
+      <th ng-click="vehiclesVm.changeSort('make')">Make</th>
+      <th ng-click="vehiclesVm.changeSort('model')">Model</th>
+      <th ng-click="vehiclesVm.changeSort('year')">Year</th>
+      <th ng-click="vehiclesVm.changeSort('redlineRpm')">RedlineRpm</th>
+      <th ng-click="vehiclesVm.changeSort('maxFuelVolume')">MaxFuelVolume</th>
+      <th ng-click="vehiclesVm.changeSort('lastServiceDate')">LastServiceDate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="vehicle in vehiclesVm.vehicles | filter:vehiclesVm.searchText |
+                        orderBy:vehiclesVm.sorter.by:vehiclesVm.sorter.reverse">
+      <td><a ng-href="#!/vehicles/{{vehicle.vin}}">
+        <img src='http://www.logodesignlove.com/images/evolution/mercedes-benz-symbol.jpg'
+             class="img-fluid" alt="Responsive image"></a></td>
+      <td>{{vehicle.vin}}</td>
+      <td>{{vehicle.make}}</td>
+      <td>{{vehicle.model}}</td>
+      <td>{{vehicle.year}}</td>
+      <td>{{vehicle.redlineRpm}}</td>
+      <td>{{vehicle.maxFuelVolume}}</td>
+      <td>{{vehicle.lastServiceDate}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+    <h2 align="center">Geo Location<a href="#/vehicles" class="pull-right btn btn-link">Back</a></h2>
+
+    <div ng-controller="ReadingDetailController">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Time</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="reading in readingDetailVm.readings">
+            <td>{{reading.latitude}}</td>
+            <td>{{reading.longitude}}</td>
+            <td>{{reading.timestamp}}</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+</div>

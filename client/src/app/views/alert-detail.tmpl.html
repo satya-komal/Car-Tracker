@@ -1,0 +1,21 @@
+<div class="container">
+    <h2 align="center">Alerts Statistics<a href="#/vehicles" class="pull-right btn btn-link">Back</a></h2>
+
+    <div ng-controller="AlertDetailController">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th>Priority-RPM</th>
+            </thead>
+            </tr>
+
+            <tbody>
+            <tr ng-repeat="alert in alertDetailVm.alerts | filterBy: priority_RPM">
+                <td> {{alert.priority_RPM}} </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
